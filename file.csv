@@ -1,0 +1,24 @@
+import pandas as pd
+df=pd.read_csv('homeprices.csv')
+#new_df = df.dropna()
+df = df.drop(index=[7,17,8,10,11])
+df["area"].fillna(5990, inplace = True)
+df["price"].fillna(234000, inplace = True)
+df.loc[5,'area'] = 2300
+df.loc[6,'area'] = 3300
+df.loc[9,'area'] = 4300
+df.loc[12,'area'] = 6300
+df.loc[13,'area'] = 8300
+df.loc[14,'area'] = 9300
+df.loc[15,'area'] = 1300
+df.loc[16,'area'] = 7300
+#price value duplicate remove
+df.loc[5,'price'] = 899000
+df.loc[6,'price'] = 120000
+df.loc[9,'price'] = 234000
+df.loc[12,'price'] = 210000
+df.loc[13,'price'] = 234500
+df.loc[14,'price'] = 134000
+df.loc[15,'price'] = 133000
+df.loc[16,'price'] = 730090
+df.to_csv("homeprices1.csv")
